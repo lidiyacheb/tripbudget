@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
     root: {
         width: '100%',
-        position: 'fixed',
+        position: 'fixed !important',
         bottom: '0',
         width: '100%',
         height: '60px' /* Height of the footer */,

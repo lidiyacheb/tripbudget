@@ -27,26 +27,34 @@ button {
 }
 
 .expense-form {
-    display: block;
-    margin: 15px;
-    position: relative;
-}
-
-.expense-form:after {
-    content: '';
     position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 0;
-    background-image: linear-gradient(
-        to right,
-        var(--primary),
-        var(--secondary)
-    );
-    border-radius: 10px;
-    transition: 0.2s;
+    left: 20%;
+    right: 20%;
+    bottom: 20%;
+    top: 20%;
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 40px;
+    color: black;
+    background: white;
+
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+        0 1px 1px rgba(128, 128, 128, 0.155),
+        0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+        0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+        0 12px 12px rgba(128, 128, 128, 0.35);
 }
 
 .expense-form:focus-within:after {
@@ -63,18 +71,21 @@ button {
     justify-content: center;
     transition: 0.4s;
     border-radius: 8px;
+    width: 100%;
+    height: 400px;
 }
 .form-inner input,
 .form-inner select {
     font-size: 18px;
-    padding: 10px 15px;
+    padding: 8px 0px;
     background-color: #fff;
     color: var(--grey);
+    margin: 20px 0px;
+    border: 1px solid gray;
 }
 
 .form-inner input[type='text'] {
-    border-radius: 8px 0px 0px 8px;
-    flex: 1 1 100%;
+    border-radius: 0px 0px 0px 0px;
 }
 .form-inner input[type='date'] {
     border-radius: 0px;
@@ -83,26 +94,6 @@ button {
 .form-inner input[type='submit'] {
     border-radius: 0px 8px 8px 0px;
     cursor: pointer;
-
-    background-image: linear-gradient(
-        to right,
-        var(--primary) 50%,
-        var(--primary) 50%,
-        var(--secondary)
-    );
-    background-size: 200%;
-    background-position: 0%;
-
-    color: var(--dark);
-    font-weight: 600;
-    text-transform: uppercase;
-
-    transition: 0.4s;
-}
-
-.form-inner input[type='submit']:hover {
-    background-position: 100%;
-    color: #fff;
 }
 
 .expense-list {
@@ -139,6 +130,13 @@ button {
 
 .expense-list .expense-item:hover .remove-item {
     width: 50px;
+}
+
+.remove-item {
+    position: absolute;
+    top: 0;
+    right: -6px;
+    color: red;
 }
 
 .expense-list .expense-item .desc {
@@ -194,24 +192,26 @@ li div {
 }
 
 .time {
-    width: 20%;
+    width: 22%;
     font-size: 0.75em;
     padding: 0.25em;
     border: 1px solid deeppink;
     border-radius: 50px;
     text-align: center;
     background-color: pink;
+    font-weight: 600;
 }
 
 .desc {
-    width: 50%;
-    margin-left: 25px;
+    width: 63%;
+    margin-left: 7px;
     border: 1px solid deeppink;
     border-radius: 9px;
     /* vertical-align: text-top; */
     text-align: center;
     padding: 5px;
-    background-color: pink;
+
+    position: relative;
 }
 
 .btn-desc {
@@ -225,6 +225,91 @@ li div {
     font-size: 0.9em;
     font-weight: 600;
     color: deeppink;
+    margin-top: 5px;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        var(--primary-color),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.btn:hover {
+    background: transparent;
+    box-shadow: 0 0 20px 10px hsla(204, 70%, 53%, 0.5);
+}
+
+.btn::before {
+    transform: translateX(100%);
+}
+
+.form-input-material {
+    --input-default-border-color: white;
+    --input-border-bottom-color: white;
+}
+
+.form-input-material input {
+    color: white;
+}
+
+.login-form {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 20%;
+    top: 20%;
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 40px;
+    color: black;
+    background: white;
+
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+        0 1px 1px rgba(128, 128, 128, 0.155),
+        0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+        0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+        0 12px 12px rgba(128, 128, 128, 0.35);
+}
+.login-form h1 {
+    margin: 0 0 24px 0;
+}
+
+.form-input-material {
+    margin: 12px 0;
+}
+
+.btn {
+    width: 100%;
+    margin: 18px 0 9px 0;
 }
 
 @media (min-width: 320px) {
@@ -232,11 +317,8 @@ li div {
     .form-inner input[type='number'] {
         min-width: 50px;
     }
-    .form-inner input[type='text'] {
-        flex: 1 1 85%;
-    }
     .form-inner input[type='date'] {
-        min-width: 100%;
+        width: 293px;
     }
 }
 @media (min-width: 480px) {
@@ -245,7 +327,7 @@ li div {
     .form-inner input[type='date'] {
         min-width: 50px;
     }
-    .form-inner input[type='text'] {
+    /* .form-inner input[type='text'] {
         flex: 1 1 85%;
-    }
+    } */
 }

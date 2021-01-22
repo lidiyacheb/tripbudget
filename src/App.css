@@ -3,6 +3,7 @@
 }
 
 .footer {
+    position: fixed !important;
     height: 50px;
     margin-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
 }

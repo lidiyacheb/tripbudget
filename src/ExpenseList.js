@@ -1,6 +1,6 @@
 import React from 'react';
 import ExpenseItem from './ExpenseItem';
-import './ExpenseForm.css'
+import './ExpenseForm.css';
 
 function ExpenseList({ expense, setExpense }) {
     const removeExpense = (i) => {

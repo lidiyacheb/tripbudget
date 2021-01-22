@@ -1,5 +1,6 @@
 import React from 'react';
 import './ExpenseForm.css';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function Expense({ expense, index, removeExpense }) {
     let date = new Date(expense.date);
@@ -32,7 +33,7 @@ export default function Expense({ expense, index, removeExpense }) {
                             className="remove-item"
                             onClick={() => removeHandle(index)}
                         >
-                            x
+                            <CloseIcon width={5} />
                         </button>
                     </div>
                 </li>
